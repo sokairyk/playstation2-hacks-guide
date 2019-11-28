@@ -27,15 +27,18 @@ are major updates that require different handling.
 | uLauncher Disc.rar [file]                                         |
 |                                                                   |
 | ESR [folder]                                                      |
+| |                                                                 |
 | |----------------> ESR beta r9b.rar [file]                        |
 | |----------------> ESR_disc_patcher_GUI_v0.24a.RAR [file]         |
 |                                                                   |
 | Free MC Boot [folder]                                             |
-|----------------> [161216]FMCB-1953-bin.7z [file]                  |
+| |                                                                 |
+| |---------------> [161216]FMCB-1953-bin.7z [file]                 |
 |                                                                   |
 | OpenPS2 Loader [folder]                                           |
-|----------------> OPL_1370_DB-TA_all-2276028-2018-12-17.zip [file] |
-|----------------> USBExtreme_wininst.zip [file]                    |
+| |                                                                 |
+| |--------------> OPL_1370_DB-TA_all-2276028-2018-12-17.zip [file] |
+| |--------------> USBExtreme_wininst.zip [file]                    |
 |                                                                   |
 | POPStarter [folder]                                               |
 | |                                                                 |
