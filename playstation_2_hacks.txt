@@ -1,0 +1,272 @@
+**********************************************************************************************************************************
+
+88""Yb 88        db    Yb  dP .dP"Y8 888888    db    888888 88  dP"Yb  88b 88     oP"Yb.     88  88    db     dP""b8 88  dP .dP"Y8
+88__dP 88       dPYb    YbdP  `Ybo."   88     dPYb     88   88 dP   Yb 88Yb88     "' dP'     88  88   dPYb   dP   `" 88odP  `Ybo."
+88"""  88  .o  dP__Yb    8P   o.`Y8b   88    dP__Yb    88   88 Yb   dP 88 Y88       dP'      888888  dP__Yb  Yb      88"Yb  o.`Y8b
+88     88ood8 dP""""Yb  dP    8bodP'   88   dP""""Yb   88   88  YbodP  88  Y8     .d8888     88  88 dP""""Yb  YboodP 88  Yb 8bodP'
+
+**********************************************************************************************************************************
+
+This guide will help you setup:
+
+- Free MC Boot:     Softmod that unlocks the Playstation 2 console true potential
+- OpenPS2 Loader:   Application that enables you to boot PS2 backups through USB, Hard Disc Drive and Network
+- POPStarter:       Application that enables you to boot PSX backups through USB, Hard Disc Drive and Network
+- ESR:              Application that enables you to boot PS2 disc backups
+- PSXLAUNCHER:      Application that enables you to boot PSX disc backups
+
+The OpenPS2 Loader and POPStarter instructions are covering the Network and USB loading methods.
+
+-----------------------------------------------------
+ ___                 __ __  ___   ___             _
+| __>_ _  ___  ___  |  \  \|  _> | . > ___  ___ _| |_
+| _>| '_>/ ._>/ ._> |     || <__ | . \/ . \/ . \ | |
+|_| |_|  \___.\___. |_|_|_|`___/ |___/\___/\___/ |_|
+
+-----------------------------------------------------
+
+Free MC Boot is a softmod for Playstation 2 consoles with version SCPH-7XXXX and lower. To install it you have to be able to boot
+unofficial disc copies. A moded PS2 or a SwapMagic disc will work fine.
+
+  - First you have to burn a disc (CD or DVD) with the uLauncher.iso image from the archive uLauncher Disc.rar. uLauncher provides you with
+    a file browser and enables you to access every storage unit in the console (e.g. Memory Card, HDD, USB Drive, etc) and lanch ELF files.
+    ELF files are executables for the Playstation 2.
+
+  - Next you need a USB Flash Drive formated to FAT32 filesystem. This is the only filesystem that Playstation 2 will recognise. Then
+    you need to extract to that drive the contents of the archive [161216]FMCB-1953-bin.7z
+
+  - Attach the USB Flash Drive to the console and load the uLauncher disc with whatever way you have available for booting unofficial discs.
+    I've tested this with Swap Magic v3.6 and it boots fine. When uLauncher loads go to the mass:// path and you'll be able to see the USB
+    Flash Drive contents.
+
+    NOTE: Some newer USB Flash Drives may not be recognised by the console and uLauncher will hang when accessing the mass:// path.
+    You can try with an older/different drive.
+
+    Navigate to the extracted files and execute the FMCBInstaller.elf
+
+  - When the installation program loads first format the Memory Card. Then choose the Multi-Install option and wait for the installation
+    to complete. The main difference between the Install and Multi-Install options is that Multi-Install will allow the Free MCBoot to
+    load to any console you put this Memory Card, while the Install option will work only on the specific console you currently have.
+
+  - Now press exit and when you are on the Memory Card browser shutdown the console and remove the USB Flash Drive and the uLauncher disc.
+    Power the console again and you should see that the mod loaded sucessfully from the Memory Card.
+
+
+
+-------------------------------------------------------------------
+ ___                  ___  ___  ___   _                _
+| . | ___  ___ ._ _  | . \/ __><_  > | |   ___  ___  _| | ___  _ _
+| | || . \/ ._>| ' | |  _/\__ \ / /  | |_ / . \<_> |/ . |/ ._>| '_>
+`___'|  _/\___.|_|_| |_|  <___/<___> |___|\___/<___|\___|\___.|_|
+     |_|
+-------------------------------------------------------------------
+
+OpenPS2 Loader enables you to load Playstaion 2 games from other available media. Apart from the console's optical drive you can boot backups
+from USB Flash Drives, Hard Disk Drives and through your Local Network. This could help you preserve the drive's laser lifespan and allow you
+to easily load up backups. You can also define virtual memory cards, activate cheats and apply graphic modes. Game compatibility while loading
+from other sources is alsmost perfect, while the only issue may be a slight shuttering during FMV playbacks when using USB or Networking options.
+
+  - This homebrew application needs the Free MC Boot hack to be installed.
+
+  - In order to install the OpenPS2 Loader you need to have a USB Flash Drive formatted in FAT32. Then you should extract the
+     OPL_1034_DB_all-01ddb89-2018-1-31.zip package to the USB Flash Drive.
+
+  - Insert the USB Flash Drive in the console and power it on without any discs inside. Through the FreeMC Boot menu select uLaunchELF and 
+    uLauncher should boot directly from the Memory Card. Navigate under the mass:// path to access the USB Flash Drive, go to the folder you extracted
+    the contents of the zip file in the previous step and copy the OPNPS2LD.ELF file. Then navigate to the root menu and go to the mc0:// path in order
+    to access your memory card. Create a OPL folder and paste it inside. Afterwards power down the console and remove the USB Flash Drive.
+
+  - Power the console back on and select the Free MCBoot Configurator and navigate to "Configure OSDSYS options...". Go to "Configure Item 1" and 
+    scroll to the right the using the D-PAD. On an empty item slot, select it, insert a name (OPL, OpenPS2 Loader etc.) and set the Path 1 to point 
+    at the mc0://OPL/OPNPS2LD.ELF. Then go back to the Free MCBoot Configurator main menu and save CNF to MC0 and reboot your console afterwards.
+    Select and run the OpenPS2 Loader from the sytem menu under the display name you gave it.
+
+    ETHERNET MODE:
+
+      - Next we'll setup a network configuration in order to load PS2 game backups through the network. This way you don't need to write disc images to
+        USB flash drives and you can update your game library more efficiently just by handling the files on your computer. You need to share an empty folder
+        on your computer with write permissions because the OpenPS2 Loader will create a file srtucture in order to manage your games. In this example we
+        asume that you know how to do that and we'll give the shared folder the name "PS2SMB", although you can name it whatever you like. On the OpenPS2 Loader
+        menu go to the "Network Config" and specify the Server, Folder and Credentials to use for the connection. The DHCP and NetBIOS options although
+        they work fine, it may take some time to initialize the connection and give you network connections errors, so I would suggest to give your computer
+        a static IP and configure your networking manually.
+
+      - If the Playstation 2 console has sucessfully connected to your "PS2SMB" folder you should see a folder structure the OpenPS2 Loader created. So things
+        are pretty straightforward now. Under the "CD" folder you put all your CD ISO images and under the "DVD" folder all your DVD ISO images. Back to the OpenPS2
+        Loader main menu navigate under "Settings" and set the "ETH device start mode" to "Automatic" and the "Default Menu" to "Network Games". Navigate back to the
+        main menu and select "Save Changes".
+
+      - If you added ISO files of Playstation 2 games under the CD/DVD game folders they should be listed under the games list. If not refresh the games list.
+
+      - If you wish to save space on your memory card you could use a virtual memory card that's stored in the network path you have to specify it explicitly on
+        each game. Under each game settings you go to the VMC Slot 1 (or 2), enter a name and create it. If you wish to use the same Virtual Memory Card for
+        several games you must define the same VMC name. The Virtual Memory Card file is stored in the "VMC" folder of the "PS2SMB" share.
+
+    USB MODE:
+
+      To be written...
+
+  NOTE: Multi disc games that require swaping almost always provide a save option before requiring the next disc. In such cases create a save, restart the
+        OpenPS2 Loader to boot the next disc and load that save that you made before the swap disc request. You should be able to continue normally.
+
+
+
+---------------------------------------------------
+ ___  ___  ___  ___    _              _
+| . \| . || . \/ __> _| |_ ___  _ _ _| |_ ___  _ _
+|  _/| | ||  _/\__ \  | | <_> || '_> | | / ._>| '_>
+|_|  `___'|_|  <___/  |_| <___||_|   |_| \___.|_|
+
+---------------------------------------------------
+
+POPStarter is a software emulator for PSX games by Sony, that was bundled with the game Bishi Bashi Stepchamp 3. It was extracted and further developed to remove
+it's initial security restrictions. It allows to load PSX game through the same media types that OpenPS2 Loader offers and it can be launched through the OpenPS2
+Loader. Since this is a software emulator it doesn't work with some games but its overall compatibility is pretty decent.
+
+  - POPStarter needs the Free MC Boot hack to be installed. The following instructions also require the OpenPS2 Loader to be installed although it can be run as
+    a standalone program.
+
+    ETHERNET MODE:
+
+        I assume that you understand your local network setup in order to add a new device and how to share a folder through your OS.
+        
+      - Extract the contents of POPSTARTER.zip archive to a USB Flash Drive formatted in FAT32. Find the following two files in the POSTARTER folder you extracted:
+        IPCONFIG.DAT and SMBCONFIG.DAT. Open both of them in a notepad and edit them as follows:
+
+          IPCONFIG.DAT
+          ------------
+          This file handles the network connection configuration. Change the following line:
+
+            PS2-IP-ADDRESS NETMASK GATEWAY
+
+          to what it says. An example could be:
+
+            192.168.1.10 255.255.255.0 192.168.1.1
+
+          You should enter appropriate IPs for your local network configuration.
+
+          SMBCONFIG.DAT
+          -------------
+          This file handles the file sharing configuration. Change the following lines:
+
+            PC-IP-ADDRESS SHARED-FOLDER-NAME
+            username
+            password
+
+          to match your file sharing setup. An example could be:
+
+            192.168.1.11 PS2SMB
+            MyUser
+            MyPass
+
+          The first line is the computer's IP and share name that POPStarter will try to access. For these instructions it should be the same folder used in
+          OpenPS2 Loader network setup.
+
+      - Plug the USB Flash Drive to Playstation 2 and power on the console without any disc inside. Throught the Free MC Boot menu go to uLauncher and go to
+        mass:// copy the entire POPSTARTER folder to the root of your memory card.
+
+        NOTE: If you ever need to change your network setup configuration, update the files IPCONFIG.DAT and SMBCONFIG.DAT, and overwrite the existing ones in
+              mc0://POPSTARTER.
+
+        IMPORTANT WARNING: Both OpenPS2 Loader and POPStarter have implemented the SMB communication with the old LM (LAN Manager) protocol instead of the
+                           commonly used and newer NTLM (NT LAN Manager). This could cause connection issues between the Playstation 2 console and the PC and
+                           cause OpenPS2 Loader and POPStarter to fail. The best network setup I tested was a Linux server with samba and lanman authentication
+                           enabled.
+
+      - Now that the Playstation 2 console is configured we need to setup the Computer configuration. In the PS2SMB share that we also used in the OpenPS2 Loader
+        setup create a folder named POPS. Inside that folder:
+
+          * Copy the file POPS_IOX.PAK
+          * Extract the files CUE2POPS_2_3.EXE and BULK_CUE2POPS.BAT from the archive CUE2POPS_2.3.7z
+          * Extract the file POPSTARTER.ELF from the archive POPStarter_r13_RIP_06.zip
+          * Extract the file POPStarter ELFs Batcher.bat from the archive POPStarter ELFs Batcher v3.zip
+
+      - In order to boot PSX games the disc images must be converted them to .VCD format. To do that, the source disc image backups should be in .bin/.cue formats.
+        If they are saved in any other format like .iso, mdf, ccd etc. they must be converted to .bin/.cue format.
+
+        NOTE: If an image has multiple tracks they should all be in a single .bin file because multiple bin files for each track are not supported. Programs like
+              CDmage can merge multiple tracks into a single .bin file.
+
+        When you've got every PSX game inside the POPS folder run the BULK_CUE2POPS.BAT to batch process them and convert them to .VCD format. If you later need to
+        convert a specific disc image inside the POPS folder instead of all of them you can open a terminal there and run:
+
+          CUE2POPS_2_3.EXE <YOUR_DISC_IMAGE>.cue
+
+      - Finally when you have your converted .VCD images inside the POPS folder you just run the POPStarter ELFs Batcher.bat file and select option 3 "Network". This
+        script will read all your .VCD image files and create a fresh file list with every game available, that OpenPS2 loader can read and launch.
+
+        NOTE: When you add/remove .VCD files to your POPS folder just run the POPStarter ELFs Batcher.bat file again to update your games setup and reflect the
+              changes to OpenPS2 Loader.
+
+      - Power on your Playstation 2 console and launch OpenPS2 Loader. Go to "Settings" and set the "Applications start mode" to "Automatic". Now under the "Apps"
+        menu on the games list you should see all your PSX backups and be able to launch them from there.
+
+  USB MODE:
+
+      Not tested yet...
+
+  IGR (In Game Reset):
+
+      - To open the POPStarter IGR (In Game Reset) menu press and hold the following button combination: Select + R1 + L1
+
+      - To update the current IGR theme your must extract the theme you prefer provided in the archive "IGR FULL.rar" to the root of your POPS folder
+
+
+---------------
+ ___  ___  ___
+| __>/ __>| . \
+| _> \__ \|   /
+|___><___/|_\_\
+
+---------------
+
+ESR can boot PS2 game disc backups that are spoofed as DVD video discs. This means the game's iso image must be patched first before burning it into a
+disc, in order to work properly.
+
+  - ESR requires Free MC Boot to be installed.
+
+  - Extract the the archive ESR beta r9b.rar into a USB Flash Drive formatted in FAT32. Plug the USB to the Playstation 2 console and power
+    it on.
+
+  - From the Free MC Boot menu launch the uLauncher application. Navigate to mass:// to access your USB Flash Drive and copy the ESR beta r9b dvdv direct.elf
+    file to your memory card in the following path: mc0://APPS/. Power down the console and remove the USB Flash Drive.
+
+  - Power the console back on, select the Free MCBoot Configurator and navigate to "Configure OSDSYS options...". Go to "Configure Item 1" and scroll to an
+    empty item slot. Select it, insert a name (ESR) and set the Path 1 to point at the mc0://APPS/ESR beta r9b dvdv direct.elf. Then go back to the Free MCBoot
+    Configurator main menu and save CNF to MC0 and power off your console afterwards.
+
+  - Assuming that you have an .iso image for a game you want to boot using ESR, extract the archive ESR_disc_patcher_GUI_v0.24a.rar and run the disc patcher
+    ESRDiscPatcher.exe. Select a game's .iso image and patch it. Then burn the .iso to DVD-R disc using a low speed (x4, x6 etc.) to avoid reading issues
+    with the console's lens.
+
+  - Insert the disc into the console and power it on. It should give a message saying "DVD Player is not setup." at the Memory Card / Disc management screen.
+    Just press back to navigate to the main menu and launch ESR. You should see different colours flashing and the backup should boot afterwards.
+
+
+
+-------------------------------------------------------
+ ___  ___ __  _ _    ___  _ _  _ _  ___  _ _  ___  ___
+| . \/ __>\ \/ | |  | . || | || \ ||  _>| | || __>| . \
+|  _/\__ \ \ \ | |_ |   || ' ||   || <__|   || _> |   /
+|_|  <___/_/\_\|___||_|_|`___'|_\_|`___/|_|_||___>|_\_\
+
+-------------------------------------------------------
+
+This application lets you boot PSX disc game backups, but it requires you to have an original game title. It's not the same as the POPStarter application because
+it boots the games from the optical drive and utilizes the related PSX hardware that Playstation 2 has for backwards compatibility. Since this is not an emulator
+there are no compatibility issues.
+
+  - PSXLAUNCHER requires Free MC Boot to be installed. It also needs an original PSX game for the booting procedure.
+
+  - Extract the file PSXLAUNCHER.ELF from the archive PSXLAUNCHER.zip, to a USB Flash Drive formatted in FAT32. Plug the USB to the Playstation 2 console and power
+    it on.
+
+  - From the Free MC Boot menu launch the uLauncher application. Navigate to mass:// to access your USB Flash Drive and copy the PSXLAUNCHER.ELF file to your memory
+    card in the following path: mc0://APPS/
+
+  - Nagivate to main menu of uLauncher and press configure. Go to R1 and map it to the path: mc0://APPS/PSXLAUNCHER.ELF and press ok
+
+  - Power off the console and insert the original PSX game. Power it back on while pressing the R1 button on the controller until the PSXLAUNCHER screen pops up.
+
+  - Open the tray and swap the disc with the backup copy. Press X and the backup should boot properly.
+

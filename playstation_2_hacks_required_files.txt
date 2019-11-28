@@ -1,0 +1,49 @@
+
+   ___  __              __       __  _             ___    __ __         __
+  / _ \/ /__ ___ _____ / /____ _/ /_(_)__  ___    |_  |  / // /__ _____/ /__ ___
+ / ___/ / _ `/ // (_-</ __/ _ `/ __/ / _ \/ _ \  / __/  / _  / _ `/ __/  '_/(_-<
+/_/  /_/\_,_/\_, /___/\__/\_,_/\__/_/\___/_//_/ /____/ /_//_/\_,_/\__/_/\_\/___/
+            /___/
+
+ ___   ____  ___    _     _   ___   ____  ___       ____  _   _     ____  __
+| |_) | |_  / / \  | | | | | | |_) | |_  | | \     | |_  | | | |   | |_  ( (`
+|_| \ |_|__ \_\_\\ \_\_/ |_| |_| \ |_|__ |_|_/     |_|   |_| |_|__ |_|__ _)_)
+
+
+These files are required to follow the instructions in the Playstation 2 Hacks Guide
+For copyright reasons I cannot provide them. You should be able to easily find them
+though. A great place to start is: http://psx-scene.com/
+
+If you happen to get more recent versions than those described in this guide you
+probably shouldn't have any issues, but double check the changelog in case there
+are major updates that require different handling.
+
+---------------------------------------------------------------------
+| FILES                                                             |
+---------------------------------------------------------------------
+|                                                                   |
+| OPL_Manager_V21.3.zip [file]                                      |
+| PSXLAUNCHER.zip [file]                                            |
+| uLauncher Disc.rar [file]                                         |
+|                                                                   |
+| ESR [folder]                                                      |
+| |----------------> ESR beta r9b.rar [file]                        |
+| |----------------> ESR_disc_patcher_GUI_v0.24a.RAR [file]         |
+|                                                                   |
+| Free MC Boot [folder]                                             |
+|----------------> [161216]FMCB-1953-bin.7z [file]                  |
+|                                                                   |
+| OpenPS2 Loader [folder]                                           |
+|----------------> OPL_1370_DB-TA_all-2276028-2018-12-17.zip [file] |
+|----------------> USBExtreme_wininst.zip [file]                    |
+|                                                                   |
+| POPStarter [folder]                                               |
+| |                                                                 |
+| |----------------> CUE2POPS_2.3.7z [file]                         |
+| |----------------> IGR FULL.rar [file]                            |
+| |----------------> POPS_IOX.PAK [file]                            |
+| |----------------> POPStarter ELFs Batcher v3.zip [file]          |
+| |----------------> POPSTARTER.zip [file]                          |
+| |----------------> POPStarter_r13_RIP_06.zip [file]               |
+|                                                                   |
+---------------------------------------------------------------------
